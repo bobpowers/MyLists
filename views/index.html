@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Off Canvas Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      	<a class="navbar-brand" href="#">Navbar</a>
+      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+      	</button>
+
+	    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	        <ul class="navbar-nav mr-auto">
+	        <li class="nav-item active">
+	            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	        </li>
+	        <!-- <li class="nav-item">
+	            <a class="nav-link" href="#">Link</a>
+	        </li>
+	        <li class="nav-item">
+	            <a class="nav-link disabled" href="#">Disabled</a>
+	        </li> -->
+	        <li class="nav-item dropdown">
+	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+	            <div class="dropdown-menu" aria-labelledby="dropdown01">
+	              	<a class="dropdown-item" href="#">Food</a>
+	              	<a class="dropdown-item" href="#">Household Stuffs</a>
+	              	<a class="dropdown-item" href="#">Others</a>
+	            </div>
+	        </li>
+	        </ul>
+	        <form class="form-inline my-2 my-lg-0">
+	          	<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+	          	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	        </form>
+	    </div>
+    </nav>
+
+    <main role="main" class="container">
+
+	    <div class="row row-offcanvas row-offcanvas-right">
+
+	        <div class="col-12 col-md-9">
+	          	<p class="float-right d-md-none">
+	            	<button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+	          	</p>
+	        <div class="jumbotron">
+	            <h1>Food.</h1>
+	            <p>This section is about food. You should purchase food for consumption for energy.</p>
+	        </div>
+	        <div class="row">
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 1</h2>
+	              	<p>This is where you can put notes about what you want to purchase.
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	              <!-- I don't know what we want to do with the above button... maybe have it link to google maps? -->
+
+	            </div><!--/span-->
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 2</h2>
+	              	<p>For example, if I want to buy item 2 at walmart, I can add that I can use the coupon code on my smartphone.
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	            </div><!--/span-->
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 3</h2>
+	              	<p>I could also say to remember to buy this item only if it's on sale.
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	            </div><!--/span-->
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 4</h2>
+	              	<p>You get the idea..
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	            </div><!--/span-->
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 5</h2>
+	              	<p>etc etc etc
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	            </div><!--/span-->
+	            <div class="col-6 col-lg-4">
+	              	<h2>Item 6</h2>
+	              	<p>Donec id elit non mi porta gravida at eget metus.
+	              	</p>
+	              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+	            </div><!--/span-->
+	          </div><!--/row-->
+	        </div><!--/span-->
+
+			<!-- Let's try to have these change based on what dropdown item is chosen from the menu -->
+	        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+	          	<div class="list-group">
+	            	<a href="#" class="list-group-item active">Some grocery store</a>
+	            	<a href="#" class="list-group-item">Some other grocery store</a>
+	            	<a href="#" class="list-group-item">And another grocery store</a>
+	            	<a href="#" class="list-group-item">etc</a>
+	            	<a href="#" class="list-group-item">etc</a>
+	            	<a href="#" class="list-group-item">etc</a>
+	          	</div>
+	        </div><!--/span-->
+	    </div><!--/row-->
+
+	<hr>
+
+    </main><!--/.container-->
+
+    <footer>
+      	<p>© Company 2017</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="offcanvas.js"></script>
+</body>
+
+</html>
