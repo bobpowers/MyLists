@@ -25,8 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 // Import routes and give the server access to them.
-var routes = require('./controllers/burgers_controller.js');
+var routes = require('./controllers/mylists_controller.js');
 app.use('/', routes);
 
 // Start listening.
 app.listen(PORT);
+console.log("Listening on port: " + PORT)
