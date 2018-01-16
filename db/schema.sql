@@ -1,3 +1,10 @@
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+
 DROP DATABASE IF EXISTS lists_db;
 CREATE database lists_db;
 USE lists_db;

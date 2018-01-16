@@ -1,3 +1,10 @@
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+-- NO LONGER USED --
+
 INSERT INTO list (list_title, listed_item, task_active, user_id)
 VALUES 
 	("Groceries", "potatoes", true, 1),
