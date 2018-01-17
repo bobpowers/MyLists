@@ -29,7 +29,7 @@ var routes = require('./controllers/mylists_controller.js');
 app.use('/', routes);
 
 // Start listening.
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
