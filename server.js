@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 
 // Initialize app.
 var app = express();
-
+var db = require("./models");
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, 'public')));
 
