@@ -5,14 +5,20 @@ var task = require('../models/index.js');
 
 router.get('/', function(req, res) {
     
-    res.render("index")
-    // task.all(function(data) {
-    //     var hbsObject = {
-    //         tasks: data
-    //     };
-    //     res.render('index', hbsObject);
-    // });
+    // Sequelize Query to get all burgers from database (and join them to their devourers, if applicable)
+    task.Lists.findAll({
+        include: [{model: task.Users}]
+       }).then(function(data){
+     
+         // Pass the returned data into a Handlebars object and then render it
+         var hbsObject = { Lists: data };
+         // console.log(data);
+         res.render('index', hbsObject);
+     
+       })
 });
+
+
 
 
 router.post('/', function(req, res) {
