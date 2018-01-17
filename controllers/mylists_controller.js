@@ -4,7 +4,8 @@ var router = express.Router();
 var task = require('../models/index.js');
 
 router.get('/', function(req, res) {
-    res.render("index")
+    res.send("working");
+    // res.render("index")
     // task.all(function(data) {
     //     var hbsObject = {
     //         tasks: data
