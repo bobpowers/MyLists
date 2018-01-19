@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyLists</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- NAVBAR CONTENT -->
+	<nav class="navbar navbar-light" id="navBar">
+		<a class="navbar-brand">MyLists</a>
+  		<form class="form-inline">
+  			<div class="quickAddDiv">
+	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="Add to Quick-Add" aria-label="Add to Quick-Add">
+	    		<button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit">Quick-Add</button>
+    		</div>
+
+    		<div class="btn-group">
+		  		<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options
+		  		</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" id="syncButton" href="#">Sync</a>
+			    	<a class="dropdown-item" href="#">Separated link</a>
+			    	<div class="dropdown-divider"></div>
+			    	<a class="dropdown-item" id="logoutButton" href="#">Logout</a>
+			  </div>
+			</div>
+  		</form>
+	</nav>
+	<!-- MAIN CONTENT -->
+	<div class="container-fluid pageContainer">
+		<!-- LEFT SIDEBAR CONTENT -->
+		<div class="sideBar">
+			<div class="listContainer">
+				<a href="#" id="quickAdd">Quick-Add</a>
+				<br><hr><br>
+				<a href="#">HTML</a>
+				<a href="#">CSS</a>
+				<a href="#">Bootstrap Stuff</a>
+				<a href="#">JavaScript</a>
+				<a href="#">More Stuff</a>
+				<a href="#" id="allLists">All Lists</a>
+				<br><hr><br>
+				<a href="#" id="newFolderButton">Add a New Folder</a>
+			</div>
+		</div>
+		<!-- MAIN CONTENT AREA -->
+		<div class="mainContent">
+    		<form action="" id="taskForm">
+    			<input id="taskInput" type="text" name="taskInput">
+    			<input id="taskSubmit" type="submit" value="Add Task">
+    		</form>
+  		</div>
+	</div>
+	
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</body>
+</html>

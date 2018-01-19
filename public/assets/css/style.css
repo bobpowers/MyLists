@@ -1,0 +1,96 @@
+/** { border: 1px solid black; }*/
+
+html {
+    height: 100%;
+}
+
+/*.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}*/
+
+#navBar {
+    background-color: #e3f2fd;
+    position: relative;
+}
+
+.pageContainer {
+    margin-left: 250px;
+}
+
+.quickAddDiv {
+    position: absolute;
+    right: 40%;
+}
+
+#quickAddInput {
+    background-color: #e3f2fd;
+    border-style: none;
+}
+
+#quickAddInput:focus {
+    background-color: #fefefe;
+}
+
+#quickAddInput:hover {
+    background-color: #fefefe;
+}
+
+.sideBar {
+    margin-top: 56px;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fafafa;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sideBar a {
+    padding: 6px 10px 6px 26px;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    color: black;
+}
+
+.sideBar a:hover {
+    color: #637f8e;
+}
+
+hr {
+    width: 200px;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.listContainer {
+    margin-top: 30px;
+}
+
+
+.mainContent {
+    /*min-height: 100%;*/
+    /*background-color: red;*/
+    margin-right: 250px;
+    text-align: center;
+}
+
+#taskForm{
+    margin-top: 100px;
+}
+
+#taskInput {
+    width: 300px;
+}
+#taskSubmit {
+    background-color: #e3f2fd;
+}
