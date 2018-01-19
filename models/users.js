@@ -12,16 +12,15 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updated_at:  DataTypes.DATE,
-    deleted_at: DataTypes.DATE
+    }
   });
 
 
+  Users.associate = function(models) {
+    Users.hasMany(models.Items, {
+      onDelete: "cascade"
+    });
+  };
   Users.associate = function(models) {
     Users.hasMany(models.Lists, {
       onDelete: "cascade"
