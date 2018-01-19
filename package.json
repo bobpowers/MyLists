@@ -16,5 +16,11 @@
     "mysql": "^2.10.2",
     "mysql2": "^1.5.1",
     "sequelize": "^4.31.2"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.9.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1"
   }
 }
