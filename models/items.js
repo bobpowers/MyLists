@@ -33,13 +33,5 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 
-    Items.associate = function(models) {
-        Items.belongsTo(models.Lists, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-  
     return Items;
   };
