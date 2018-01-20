@@ -3,6 +3,11 @@
 /*font-family: 'Roboto', sans-serif;*/
 /*font-family: 'Abel', sans-serif;*/
 
+.navbar-brand{
+    font-family: 'Oxygen', sans-serif;
+    padding-left: 24px;
+}
+
 h1 {
     margin-top: 50px;
     font-size: 32px;
@@ -59,6 +64,7 @@ h1 {
     font-size: 22px;
     display: block;
     color: black;
+    padding-left: 40px;
 }
 
 .sideBar a:hover {
@@ -82,7 +88,6 @@ h1 {
     margin-left: 240px;
 }
 
-
 #taskForm{
     position: relative;
 }
@@ -96,6 +101,7 @@ h1 {
 #taskInput {
     width: 300px;
 }
+
 #taskSubmit {
     background-color: #e3f2fd;
 }
@@ -154,5 +160,26 @@ h1 {
     cursor: pointer;
     display: inline-block;
     padding: 5px 10px;
+}
+
+#optionBar {
+
+    /*this is stuff to figure out how to get the dropdown pull to the left*/
+    /*background-color: #28a745;*/
+    /*left: auto;*/
+    /*right: 100%;*/
+}
+
+.footer {
+    position: fixed;
+    height: 5%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #afc9dc;
+    color: : #fff;
+    text-align: center;
+    z-index: 30;
+    padding-top: 5px;
 }
 
