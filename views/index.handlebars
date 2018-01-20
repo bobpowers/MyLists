@@ -1,140 +1,69 @@
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      	<a class="navbar-brand" href="#">Navbar</a>
-      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        	<span class="navbar-toggler-icon"></span>
-      	</button>
+	<!-- NAVBAR CONTENT -->
+	<nav class="navbar navbar-light" id="navBar">
+		<a class="navbar-brand">MyLists</a>
+  		<form class="form-inline">
+  			<div class="quickAddDiv">
+	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="Add to Quick-Add" aria-label="Add to Quick-Add">
+	    		<button class="btn  btn-outline-success my-2 my-sm-0" type="submit">Quick-Add</button>
+    		</div>
 
-	    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-	        <ul class="navbar-nav mr-auto">
-	        <li class="nav-item active">
-	            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	        </li>
-	        <!-- <li class="nav-item">
-	            <a class="nav-link" href="#">Link</a>
-	        </li>
-	        <li class="nav-item">
-	            <a class="nav-link disabled" href="#">Disabled</a>
-	        </li> -->
-	        <li class="nav-item dropdown">
-	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-	            <div class="dropdown-menu" aria-labelledby="dropdown01">
-	            	<a class="dropdown-item" href="#">List All</a>
-	              	<a class="dropdown-item" href="#">Food</a>
-	              	<a class="dropdown-item" href="#">Household Stuffs</a>
-	              	<a class="dropdown-item" href="#">Others</a>
-	            </div>
-	        </li>
-	        </ul>
-	        <form class="form-inline my-2 my-lg-0">
-	          	<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-	          	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	        </form>
-	    </div>
-    </nav>
-
-    <main role="main" class="container">
-
-	    <div class="row row-offcanvas row-offcanvas-right">
-
-	        <div class="col-12 col-md-9">
-	          	<p class="float-right d-md-none">
-	            	<button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
-	          	</p>
-	        <div class="jumbotron">
-	            <h1>Food.</h1>
-	            <p>This section is about food. You should purchase food for consumption for energy.</p>
-	            <br>
-	            <p><a class="btn btn-primary" href="#" role="button">Edit grocery list</a></p>
-	        </div>
-	        <div class="row">
-				{{#each Lists}}
-	            	<div class="col-6 col-lg-4" item_id={{id}}>
-						<h2>{{listed_item}}</h2>
-						<p>This is where you can put notes about what you want to purchase.
-						</p>
-						<p><a class="btn btn-secondary" href="#" role="button">Done!</a></p>
-	            	</div>
-				{{/each}}
-	        </div><!--/row-->
+    		<div class="btn-group dropleft">
+		  		<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" id="syncButton" href="#">Sync</a>
+			    	<a class="dropdown-item" href="#">Separated link</a>
+			    	<div class="dropdown-divider"></div>
+			    	<a class="dropdown-item" id="logoutButton" href="#">Logout</a>
+			  </div>
 			</div>
-			<!-- Let's try to have these change based on what dropdown item is chosen from the menu -->
-	        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-	          	<div class="list-group">
-	            	<a href="#" class="list-group-item active">Some grocery store</a>
-	            	<a href="#" class="list-group-item">Some other grocery store</a>
-	            	<a href="#" class="list-group-item">And another grocery store</a>
-	            	<a href="#" class="list-group-item">etc</a>
-	            	<a href="#" class="list-group-item">etc</a>
-	            	<a href="#" class="list-group-item">etc</a>
-	          	</div>
-	        </div><!--/span-->
-	  	</div><!--/row-->
-	<hr>
-
-    </main><!--/.container-->
-
-    <footer>
-      	<p>© Company 2017</p>
-    </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
-    <script src="assets/scripts/offcanvas.js"></script>
-
-
-
-{{!-- <div class="row">
-    <div class="col-xs-12">
-        <h1>Eat Da Burger!</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-4">
-        <h2>Ready</h2>
-        <ul>
-            {{#each burgers}}
-                {{#unless this.devoured}}
-                    <li class="holder">
-                    <h4>{{this.burger_name}}</h4>
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devoured" value="true">
-                        <button type="submit" class="btn btn-danger btn-sm">EAT IT!</button>
-                    </form>
-                    </li>
-                {{/unless}}
-            {{/each}}
-        </ul>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <img src="assets/img/burger.png" alt="A drawing of a burger with several layers of toppings">
-        <h2>Add a Burger</h2>
-        <form class="create-update-form add-form" action="/" method="POST">
-            <div class="form-group">
-                <label for="burger" class="sr-only">Burger Name:</label>
-                <input type="text" id="burger" name="name" placeholder="Burger Name" class="form-control" maxlength="30">
-            </div>
-            <button type="submit" class="btn btn-danger">Add Burger</button>
-        </form>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <h2>Devoured!</h2>
-        <ul>
-            {{#each burgers}}
-                {{#if this.devoured}}
-                    <li class="holder">
-                    <h4>{{this.burger_name}}</h4>
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devoured" value="false">
-                        <button type="submit" class="btn btn-danger btn-sm">MAKE ANOTHER!</button>
-                    </form>
-                </li>
-                {{/if}}
-            {{/each}}
-        </ul>
-    </div>
-</div> --}}
+  		</form>
+	</nav>
+	
+	<!-- REST OF THE BODY CONTENT -->
+	<div class="container-fluid"> 
+		<!-- LEFT SIDEBAR CONTENT -->
+		<div class="sideBar">
+			<div class="listContainer">
+				<!-- DEFAULT LIST TITLE -->
+				<a href="#" id="quickAdd">Quick-Add</a>
+				<br><hr class="hr"><br>
+				<!-- THIS IS WHERE NEW LIST TITLES ARE ADDED -->
+				<!-- <a> Template IS TEMPLATE FOR HANDLEBARS-->
+				<a href="#">Template</a>
+				<br><hr class="hr"><br>
+				<a href="#" id="newFolderButton">+ Add a New List</a>
+			</div>
+		</div>
+		<!-- MAIN CONTENT AREA -->
+		<div class="mainContent">
+			<div id="listTitle">
+				<h1>HTML</h1>
+			</div>
+			<div class="checklistContent">
+				<!-- THE LISTED ITEMS -->
+				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+  				<div class="listStyling">
+    				<div class="form-check-inline taskForm">
+        				<input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+      					<p class="itemName">sdaghbs</p>
+      					<div class="btn-group dropleft importanceDropdown">
+							<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Importance
+						  	</button>
+						  	<div class="dropdown-menu">
+						  		<a class="dropdown-item" href="#">High Importance</a>
+			    				<a class="dropdown-item" href="#">Moderate Imporance</a>
+			    				<a class="dropdown-item" href="#">Low Importance</a>
+						  	</div>
+						</div>
+    				</div>
+    				<hr class="hrForChecklist">
+  				</div>
+  				
+		<!-- ADD A NEW ITEM -->
+			<div id="addToList">
+				<p>+ Add an Item</p>
+			</div>
+			</div>
+		</div>
+	</div>
