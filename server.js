@@ -42,8 +42,8 @@ app.use(passport.session()); // persistent login sessions
 app.use(methodOverride('_method'));
 
 // Import routes and give the server access to them.
-var routes = require('./controllers/mylists_controller.js');
-app.use('/', routes);
+// var routes = require('./controllers/mylists_controller.js');
+// app.use('/', routes);
 
 var auth_routes = require('./controllers/authcontroller.js');
 app.use('/', auth_routes);
