@@ -37,7 +37,7 @@ var auth_routes = require('./controllers/authcontroller.js');
 app.use('/auth', auth_routes);
 
 //load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport, db.user);
 
 
 
