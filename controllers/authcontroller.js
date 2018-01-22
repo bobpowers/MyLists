@@ -54,7 +54,7 @@ function isLoggedIn(req, res, next) {
 
         return next();
 
-    res.redirect('/signin');
+    res.redirect('/signup');
 
 }
 
