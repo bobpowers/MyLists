@@ -3,17 +3,17 @@ var router = express.Router();
 
 var task = require('../models/index.js');
 
-router.get('/', function(req, res) {
+// router.get('/', function(req, res) {
     
-    task.Items.findAll({
-        include: [{model: task.Lists}]
-       }).then(function(data){
+//     task.Items.findAll({
+//         include: [{model: task.Lists}]
+//        }).then(function(data){
      
-         var hbsObject = { Items: data };
-         res.render('index', hbsObject);
+//          var hbsObject = { Items: data };
+//          res.render('index', hbsObject);
      
-       })
-});
+//        })
+// });
 
 router.post('/api/checked/:id', function(req, res) {
     models.Items.findOne( {where: {id: req.params.id} } )

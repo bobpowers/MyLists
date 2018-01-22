@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Users = sequelize.define("Users", {
+  var User = sequelize.define("user", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -17,19 +17,20 @@ module.exports = function(sequelize, DataTypes) {
               type: DataTypes.STRING,
               allowNull: false
           }
-  });
+  }, {
+timestamps: false
+  })
 
-
-  Users.associate = function(models) {
-    Users.hasMany(models.Items, {
+  User.associate = function(models) {
+    User.hasMany(models.Items, {
       onDelete: "cascade"
     });
   };
-  Users.associate = function(models) {
-    Users.hasMany(models.Lists, {
+  User.associate = function(models) {
+    User.hasMany(models.Lists, {
       onDelete: "cascade"
     });
   };
 
-  return Users;
+  return User;
 };

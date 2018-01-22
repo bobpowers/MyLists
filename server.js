@@ -5,6 +5,7 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport   = require('passport')
+var session    = require('express-session')
 
 
 //Select Env Varibles
@@ -23,8 +24,19 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // Body Parser
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+// For Passport
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 // Method override.
 app.use(methodOverride('_method'));
@@ -34,7 +46,7 @@ var routes = require('./controllers/mylists_controller.js');
 app.use('/', routes);
 
 var auth_routes = require('./controllers/authcontroller.js');
-app.use('/auth', auth_routes);
+app.use('/', auth_routes);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
