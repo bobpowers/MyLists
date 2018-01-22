@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var Items = sequelize.define("Items", {
       id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4,
         allowNull: false
       },
       listed_item: {

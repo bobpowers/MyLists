@@ -18,7 +18,7 @@ auth_router.get('/signin', function(req, res) {
 });
 
 auth_router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/index',
+        successRedirect: '/firsttime',
 
         failureRedirect: '/signup'
     }
@@ -46,6 +46,13 @@ auth_router.get('/logout', function(req, res) {
         res.redirect('/index');
  
     });
+});
+
+auth_router.get('/firsttime', function(req, res) {
+    task.Lists.create({userId: req.session.passport.user, list_title: "default"}).then(task => {
+        res.redirect('/index');
+    });
+
 });
 
 function isLoggedIn(req, res, next) {
