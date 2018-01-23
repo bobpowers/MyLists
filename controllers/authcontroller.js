@@ -36,8 +36,10 @@ auth_router.post('/signin', passport.authenticate('local-signin', {
 auth_router.get('/index', isLoggedIn, function(req, res) {
     //handle with passport
     console.log(req.isAuthenticated());
-    task.Items.findAll({where: {userId: req.session.passport.user}}).then(function(quickList){
+    task.Lists.findOne({where: {list_title: "default", user_fk: req.session.passport.user}}).then(function(test) {
+    task.Items.findAll({where: {user_fk: req.session.passport.user, list_fk: test.id}}).then(function(quickList){
         return res.render('index', {quickList})
+    })
     })
 });
 
@@ -51,7 +53,7 @@ auth_router.get('/logout', function(req, res) {
 });
 
 auth_router.get('/firsttime', function(req, res) {
-    task.Lists.create({userId: req.session.passport.user, list_title: "default"}).then(task => {
+    task.Lists.create({user_fk: req.session.passport.user, list_title: "default"}).then(task => {
         res.redirect('/index');
     });
 
@@ -59,18 +61,23 @@ auth_router.get('/firsttime', function(req, res) {
 
 auth_router.post('/quickadd', function(req, res) {
     console.log(req)
-    let quickhit = {
-        listed_item: req.body.quickaddtop,
-        userId: req.session.passport.user,
-        task_active: 1,
-        task_importance: 0,
-        Lists: {list_title: "default", userId: req.session.passport.user, id: {where: {list_title: "default"}}}
-        }
-        
-      console.log(quickhit)
-    task.Items.create(quickhit, {include: task.Lists}).then(task => {
-        res.redirect('/');
+    task.Lists.findOne({where: {list_title: "default", user_fk: req.session.passport.user}}).then(function(quickadd) {
+        console.log("----------------------------------")
+        console.log(quickadd.id)
+        console.log("----------------------------------")
+        let quickhit = {
+            listed_item: req.body.quickaddtop,
+            user_fk: req.session.passport.user,
+            task_active: 1,
+            task_importance: 0,
+            list_fk: quickadd.id
+            }
+            
+        task.Items.create(quickhit, {include: task.Lists}).then(task => {
+            res.redirect('/');
+        })
     })
+
 })
 
 function isLoggedIn(req, res, next) {

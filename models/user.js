@@ -22,15 +22,17 @@ timestamps: false
   })
 
   User.associate = function(models) {
-    User.hasMany(models.Items, {
-      onDelete: "cascade"
+    User.hasOne(models.Items, {
+      onDelete: "cascade",
+      foreignKey: "user_fk"
     });
   };
-  User.associate = function(models) {
-    User.hasMany(models.Lists, {
-      onDelete: "cascade"
-    });
-  };
+  // User.associate = function(models) {
+  //   User.hasOne(models.Lists, {
+  //     onDelete: "cascade",
+  //     foreignKey: "user_fk"
+  //   });
+  // };
 
   return User;
 };

@@ -25,21 +25,29 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   
-    Items.associate = function(models) {
-      Items.belongsTo(models.user, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
 
     Items.associate = function(models) {
       Items.belongsTo(models.Lists, {
-        foreignKey: {
-          allowNull: false
-        }
+        onDelete: "cascade",
+        foreignKey: "list_fk"
       });
     };
+  
+    // Items.associate = function(models) {
+    //   Items.belongsTo(models.user, {
+        // foreignKey: {
+        //   allowNull: false
+        // }
+    //   });
+    // };
+
+    // Items.associate = function(models) {
+    //   Items.belongsTo(models.Lists, {
+    //     foreignKey: {
+    //       allowNull: false
+    //     }
+    //   });
+    // };
 
     return Items;
   };

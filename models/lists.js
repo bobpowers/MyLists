@@ -19,17 +19,16 @@ module.exports = function(sequelize, DataTypes) {
 
 
 
-  Lists.associate = function(models) {
-    Lists.hasMany(models.Items, {
-      onDelete: "cascade"
-    });
-  };
+  // Lists.associate = function(models) {
+  //   Lists.hasMany(models.Items, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   Lists.associate = function(models) {
     Lists.belongsTo(models.user, {
-      foreignKey: {
-        allowNull: false
-      }
+      onDelete: "cascade",
+      foreignKey: "user_fk"
     });
   };
   return Lists;
