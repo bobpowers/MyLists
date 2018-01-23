@@ -25,5 +25,12 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
+  Lists.associate = function(models) {
+    Lists.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Lists;
 };

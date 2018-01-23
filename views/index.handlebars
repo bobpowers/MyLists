@@ -1,9 +1,9 @@
 	<!-- NAVBAR CONTENT -->
 	<nav class="navbar navbar-light" id="navBar">
 		<a class="navbar-brand">MyLists</a>
-  		<form class="form-inline">
+  		<form class="form-inline" id="quickaddtop" method="post" action="/quickadd">
   			<div class="quickAddDiv">
-	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="Add to Quick-Add" aria-label="Add to Quick-Add">
+	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="Add to Quick-Add" aria-label="Add to Quick-Add" name="quickaddtop">
 	    		<button class="btn  btn-outline-success my-2 my-sm-0" type="submit">Quick-Add</button>
     		</div>
     		<button type="button" class="btn btn-secondary" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
@@ -33,10 +33,11 @@
 			<div class="checklistContent">
 				<!-- THE LISTED ITEMS -->
 				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+					{{#each quickList}}
   				<div class="listStyling">
     				<div class="form-check-inline taskForm">
         				<input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-      					<p class="itemName">sdaghbs</p>
+      					<p class="itemName">{{listed_item}}</p>
       					<div class="btn-group dropleft importanceDropdown">
 							<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
@@ -52,6 +53,7 @@
     				</div>
     				<hr class="hrForChecklist">
   				</div>
+				  {{/each}}
   				
 		<!-- ADD A NEW ITEM -->
 			<div id="addToList">

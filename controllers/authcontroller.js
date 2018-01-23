@@ -36,7 +36,9 @@ auth_router.post('/signin', passport.authenticate('local-signin', {
 auth_router.get('/index', isLoggedIn, function(req, res) {
     //handle with passport
     console.log(req.isAuthenticated());
-    res.render('index');
+    task.Items.findAll({where: {userId: req.session.passport.user}}).then(function(quickList){
+        return res.render('index', {quickList})
+    })
 });
 
 auth_router.get('/logout', function(req, res) {
@@ -54,6 +56,22 @@ auth_router.get('/firsttime', function(req, res) {
     });
 
 });
+
+auth_router.post('/quickadd', function(req, res) {
+    console.log(req)
+    let quickhit = {
+        listed_item: req.body.quickaddtop,
+        userId: req.session.passport.user,
+        task_active: 1,
+        task_importance: 0,
+        Lists: {list_title: "default", userId: req.session.passport.user, id: {where: {list_title: "default"}}}
+        }
+        
+      console.log(quickhit)
+    task.Items.create(quickhit, {include: task.Lists}).then(task => {
+        res.redirect('/');
+    })
+})
 
 function isLoggedIn(req, res, next) {
  
