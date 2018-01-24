@@ -3,6 +3,11 @@
 /*font-family: 'Roboto', sans-serif;*/
 /*font-family: 'Abel', sans-serif;*/
 
+.checked {
+    text-decoration: line-through;
+    color: #9c9a9a;
+}
+
 .highImportance {
     color: #2d60b2;
 }
