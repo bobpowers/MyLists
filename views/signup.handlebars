@@ -3,25 +3,39 @@
 
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
 </head>
 
-<body>
-    <p>Welcome to myLists, please signup or sign in below!</p>
-    <p>New Account:</p>
-    <form id="signup" name="signup" method="post" action="/signup">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
-        <label for="firstname">First Name</label>
-        <input name="firstname" type="text" />
-        <label for="lastname">Last Name</label>
-        <input name="lastname" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign Up" />
-    </form>
-<br>
-Already have an account?  Log in <a href = "/signin">here</a>
+<body class="backgroundColor">
+    <div class="container">
 
+        <form id="signup" name="signup" method="post" action="/signup" class="form-signin">
+            <h2 id="signInWelcome" class="form-signin-heading">Welcome to MyLists!<br>Please sign up or sign in below!</h2>
+            <h4 id="signInNewAccount" class="form-signin-heading">New Account:</h4>
+            <label for="email" class="sr-only">Email Address</label>
+            <input type="text" name="email" id="signInBlob" class="form-control text mx-auto" placeholder="Your-email@example.com" required="" autofocus="">
+            <label for="firstname" class="sr-only">First Name</label>
+            <input type="text" name="firstname" id="signInBlob" class="form-control text mx-auto" placeholder="First Name" required="" autofocus="">
+            <label for="lastname" class="sr-only">Last Name</label>
+            <input type="text" name="lastname" id="signInBlob" class="form-control text mx-auto" placeholder="Last Name" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="signInBlob" class="form-control text mx-auto" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block mx-auto" type="submit" value="Sign Up" id="signInButton">Sign in</button>
+            <h6 class="form-signin-heading text-center">Already have an account?  Log in <a href = "/signin">here</a></h6>
+        </form>
+    </div> <!-- /container -->
 </body>
 
 </html>
+
+
+    
+
+      
+
+    
+  

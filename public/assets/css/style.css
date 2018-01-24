@@ -3,6 +3,34 @@
 /*font-family: 'Roboto', sans-serif;*/
 /*font-family: 'Abel', sans-serif;*/
 
+#signInWelcome {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+#signInNewAccount {
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+#signInBlob {
+    width: 30%;
+    margin: 0.1%;
+    background-color: #e5e9ec;
+}
+
+.backgroundColor {
+    background-color: #e3f2fd;
+}
+
+#signInButton {
+    width: 30%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: #deeffb;
+}
+
 .navbar-brand{
     font-family: 'Oxygen', sans-serif;
     padding-left: 24px;

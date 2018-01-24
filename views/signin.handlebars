@@ -3,17 +3,25 @@
 
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
 </head>
 
-<body>
-    <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form>
-
+<body class="backgroundColor">
+    <div class="container">
+        <form id="signin" name="signin" method="post" action="signin" class="form-signin">
+            <h2 id="signInWelcome" class="form-signin-heading">Welcome back to MyLists!</h2>
+            <label for="email" class="sr-only">Email Address</label>
+            <input class="form-control text mx-auto" id="signInBlob" name="email" type="text" placeholder="Your-email@example.com" required="" autofocus=""/>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input name="password" id="signInBlob" class="form-control text mx-auto" placeholder="Password" required="" type="password" />
+            <input class="btn btn-lg btn-primary btn-block mx-auto" type="submit" value="Sign In" id="signInButton" />
+            <h6 class="form-signin-heading text-center">Don't have an account?  No problem. Sign up <a href = "/signup">here</a></h6>
+        </form>
+    </div>
 </body>
 
 </html>
