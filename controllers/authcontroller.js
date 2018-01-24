@@ -82,8 +82,17 @@ auth_router.post('/quickadd', function(req, res) {
 
 auth_router.delete('/list/item/:id', function(req, res) {
     console.log(req.params)
-    // task.Items.destroy({where: {id: req.params.id}})
+    task.Items.destroy({where: {id: req.params.id}}).then(task => {
+        res.end();
+    })
 })
+
+// auth_router.put('/list/item/:id', function(req, res) {
+//     console.log(req.params)
+//     task.Items.destroy({where: {id: req.params.id}}).then(task => {
+//         res.redirect('/')
+//     })
+// })
 
 function isLoggedIn(req, res, next) {
  

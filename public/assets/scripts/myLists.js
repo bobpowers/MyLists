@@ -65,7 +65,7 @@ var buttonDropdownActions = function(){
       			method: "DELETE",
       			url: "list/item/" + idOfTask
     		})
-    		.done("UPDATE THE PAGE");
+    		.done(location.reload());
   }
 		// LOGIC FOR DELETING THE ITEM FROM DB
 	}
