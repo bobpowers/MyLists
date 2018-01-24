@@ -57,9 +57,9 @@ var buttonDropdownActions = function(){
 		if (importance <= 2) {
 			$.ajax({
       			method: "PUT",
-      			url: "list/item/" + idOfTask
+      			url: "list/item/" + idOfTask + "/" + importance
     		})
-    		.done("UPDATE THE PAGE");
+    		.done(location.reload());
 		} else {
 			$.ajax({
       			method: "DELETE",

@@ -87,12 +87,15 @@ auth_router.delete('/list/item/:id', function(req, res) {
     })
 })
 
-// auth_router.put('/list/item/:id', function(req, res) {
-//     console.log(req.params)
-//     task.Items.destroy({where: {id: req.params.id}}).then(task => {
-//         res.redirect('/')
-//     })
-// })
+auth_router.put('/list/item/:id/:importance', function(req, res) {
+    task.Items.findOne({where: {id: req.params.id}}).then(function(test) {
+        test.update({
+            task_importance: req.params.importance
+        }).then(task => {
+            res.redirect('/');
+        })
+    })
+})
 
 function isLoggedIn(req, res, next) {
  
