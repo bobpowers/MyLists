@@ -116,11 +116,20 @@
 		        	</button>
 		      	</div>
 		      	<div class="modal-body">
-		        <input class="form-control form-control-sm mr-sm-2" id="modalTaskInput" type="text" placeholder="Add New Task" aria-label="Add to Quick-Add">
+		        {{!-- <input class="form-control form-control-sm mr-sm-2" id="modalTaskInput" type="text" placeholder="Add New Task" aria-label="Add to Quick-Add"> --}}
+				<form class="form-horizontal" role="form" method="post" action="/quickadd2">
+                  <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="quickaddmodal" placeholder="Add a New Task" name="quickaddmodal"/>
+						<br>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        		<button id="addTask" class="btn btn-primary" type="submit">Add</button>
+                    </div>
+                  </div>
+                </form>
 		      	</div>
 		      	<div class="modal-footer">
-		        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-		        	<button id="addTask" type="button" class="btn btn-primary">Add</button>
+
 		      	</div>
 	  	  	</div>
 	  	</div>

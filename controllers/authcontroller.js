@@ -80,6 +80,28 @@ auth_router.post('/quickadd', function(req, res) {
 
 })
 
+auth_router.post('/quickadd2', function(req, res) {
+    console.log(req.body)
+    task.Lists.findOne({where: {list_title: "default", user_fk: req.session.passport.user}}).then(function(quickadd) {
+        console.log("----------------------------------")
+        console.log(req.body)
+        console.log(quickadd.id)
+        console.log("----------------------------------")
+        let quickhit = {
+            listed_item: req.body.quickaddmodal,
+            user_fk: req.session.passport.user,
+            task_active: 1,
+            task_importance: 0,
+            list_fk: quickadd.id
+            }
+            
+        task.Items.create(quickhit, {include: task.Lists}).then(task => {
+            res.redirect('/');
+        })
+    })
+
+})
+
 auth_router.delete('/list/item/:id', function(req, res) {
     console.log(req.params)
     task.Items.destroy({where: {id: req.params.id}}).then(task => {
