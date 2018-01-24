@@ -80,6 +80,11 @@ auth_router.post('/quickadd', function(req, res) {
 
 })
 
+auth_router.delete('/list/item/:id', function(req, res) {
+    console.log(req.params)
+    // task.Items.destroy({where: {id: req.params.id}})
+})
+
 function isLoggedIn(req, res, next) {
  
     if (req.isAuthenticated())

@@ -33,6 +33,7 @@
 			<div class="checklistContent">
 				<!-- THE LISTED ITEMS -->
 				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+					<div class = "hbcontainer">
 					{{#each quickList}}
   				<div class="listStyling">
     				<div class="form-check-inline taskForm">
@@ -43,17 +44,18 @@
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
 						  	</button>
 						  	<div class="dropdown-menu">
-						  		<a class="dropdown-item" href="#" data-ref="taskIdHERE" data-value="2">High Importance</a>
-			    				<a class="dropdown-item" href="#" data-ref="taskIdHERE" data-value="1">Moderate Imporance</a>
-			    				<a class="dropdown-item" href="#" data-ref="taskIdHERE" data-value="0">Low Importance</a>
+						  		<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
+			    				<a class="dropdown-item importance" href="#" data-ref="taskIdHERE" data-value="1">Moderate Imporance</a>
+			    				<a class="dropdown-item importance" href="#" data-ref="taskIdHERE" data-value="0">Low Importance</a>
 			    				<div class="dropdown-divider"></div>
-			    				<a class="dropdown-item" href="#" style="color: #FF0000" data-value="3">Delete</a>
+			    				<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
 						  	</div>
 						</div>
     				</div>
     				<hr class="hrForChecklist">
   				</div>
 				  {{/each}}
+				  </div>
   				
 		<!-- ADD A NEW ITEM -->
 			<div id="addToList">

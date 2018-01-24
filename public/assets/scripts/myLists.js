@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$("#addItem").on("click", runTaskModal);
 	$("#addCategory").on("click", runListModal);
 	$("#quickAddButton").on("click", addToQuickList);
-	$(".importance").on("click", buttonDropdownActions);
+	$(document).on('click', '.importance', buttonDropdownActions);
 	$(":checkbox").on("click", checkboxActions);
 });
 
@@ -69,7 +69,6 @@ var buttonDropdownActions = function(){
   }
 		// LOGIC FOR DELETING THE ITEM FROM DB
 	}
-}
 
 var checkboxActions = function(){
 	var checkboxValue = $(this).val();
