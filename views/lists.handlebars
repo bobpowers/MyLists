@@ -1,0 +1,164 @@
+<head>
+	<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+		<!-- NAVBAR CONTENT -->
+	<nav class="navbar navbar-light" id="navBar">
+		<a class="navbar-brand">MyLists</a>
+  		<form class="form-inline" id="quickaddtop" method="post" action="/quickadd">
+    		<a href="/logout">
+    		<button type="button" class="btn btn-secondary" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</button>
+    		</a>
+  		</form>
+	</nav>
+	
+<!-- REST OF THE BODY CONTENT -->
+	<div class="container-fluid"> 
+		<!-- LEFT SIDEBAR CONTENT -->
+		<div class="sideBar">
+			<div class="listContainer">
+				<!-- DEFAULT LIST TITLE -->
+				<a href="/" value="Quick-Add"><i class="fa fa-angle-double-right"></i> Quick-Add</a>
+				<br><hr class="hr"><br>
+				<!-- THIS IS WHERE NEW LIST TITLES ARE ADDED -->
+				<!-- <a> Template IS TEMPLATE FOR HANDLEBARS-->
+				<a href="#"><i class="fa fa-angle-double-right"></i> Template</a>
+				<br><hr class="hr"><br>
+				<a href="#" id="addCategory">+ Add a New List</a>
+			</div>
+		</div>
+		<!-- MAIN CONTENT AREA -->
+		<div class="mainContent">
+			<div id="listTitle">
+				<h1>Template</h1>
+			</div>
+			<div class="checklistContent">
+				<!-- THE LISTED ITEMS -->
+				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+					<div class = "hbcontainer">
+				{{#each quickList}}
+				{{#if task_active}}
+				<div class="listStyling">
+					<div class="form-check-inline taskForm">
+						<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" data-ref={{id}} aria-label={{task_active}}>
+						<p class="itemName importance{{task_importance}}">{{listed_item}}</p>
+						<div class="btn-group dropleft importanceDropdown">
+							<button type="button" class="btn btn-sm btn-light dropdown-toggle importance{{task_importance}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="1">Moderate Imporance</a>
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="0">Low Importance</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
+							</div>
+						</div>
+					</div>
+					<hr class="hrForChecklist">
+				</div>
+				{{/if}}
+				{{/each}}
+				</div>
+  				
+		<!-- ADD A NEW ITEM -->
+			<div id="addToList">
+				<p id="addItem">+ Add an Item</p>
+			</div>
+			</div>
+			<div class="checklistContent">
+				<!-- THE LISTED ITEMS -->
+				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+				<div class = "hbcontainer">
+				{{#each quickList}}
+				{{#unless task_active}}
+					<div class="listStyling">
+						<div class="form-check-inline taskForm">
+							<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" checked="checked" data-ref={{id}} aria-label={{task_active}}>
+							<s><p class="itemName importance{{task_importance}}">{{listed_item}}</p></s>
+							<div class="btn-group dropleft importanceDropdown">
+								<button type="button" class="btn btn-sm btn-light dropdown-toggle importance{{task_importance}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="1">Moderate Imporance</a>
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="0">Low Importance</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
+								</div>
+							</div>
+						</div>
+						<hr class="hrForChecklist">
+					</div>
+				{{/unless}}
+				{{/each}}
+				</div>
+		</div>
+	</div>
+
+	<div class="footer">
+      <div class="container">
+        <span>© 2018 name</span>
+      </div>
+    </div>
+
+<!-- MODAL SECTION -->
+	<!-- MODAL 1 = FOR ADDING TASK -->
+
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<h5 class="modal-title">Add a New Task</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		        {{!-- <input class="form-control form-control-sm mr-sm-2" id="modalTaskInput" type="text" placeholder="Add New Task" aria-label="Add to Quick-Add"> --}}
+				<form class="form-horizontal" role="form" method="post" action="/quickadd2">
+                  <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="quickaddmodal" placeholder="Add a New Task" name="quickaddmodal"/>
+						<br>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        		<button id="addTask" class="btn btn-primary" type="submit">Add</button>
+                    </div>
+                  </div>
+                </form>
+		      	</div>
+		      	<div class="modal-footer">
+
+		      	</div>
+	  	  	</div>
+	  	</div>
+	</div>
+	<!-- END MODAL FOR ADDING TASKS -->
+
+
+	<!-- MODAL 2 = FOR ADDING NEW LIST CATEGORY -->
+	
+	<div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<h5 class="modal-title">Add a New List</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+		        <input class="form-control form-control-sm mr-sm-2" id="modalListInput" type="text" placeholder="Create New List" aria-label="Add to Quick-Add">
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        	<button id="addList" type="button" class="btn btn-primary">Add</button>
+		      	</div>
+	  	  	</div>
+	  	</div>
+	</div>
+	<!-- END MODAL FOR ADDING LIST CATEGORY -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script src="../assets/scripts/myLists.js"></script>

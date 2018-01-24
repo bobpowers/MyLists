@@ -3,55 +3,24 @@ var router = express.Router();
 var passport = require("passport");
 var task = require('../models/index.js');
 
-// router.get('/', function(req, res) {
-    
-//     task.Items.findAll({
-        // include: [{model: task.Lists}]
-//        }).then(function(data){
-     
-//          var hbsObject = { Items: data };
-//          res.render('index', hbsObject);
-     
-//        })
-// });
-
-
-router.post('/index', function (req, res) {
-  task.Items.create({
-    where: {
-        user_fk: req.session.passport.user
-        // list_fk: something
-    } ,
-    include: [{model: task.Lists, model:}]
-
-    
-  })
-
-
-})
-
-
-
-router.post('/api/checked/:id', function(req, res) {
-    models.Items.findOne( {where: {id: req.params.id} } )
-    .then(function(checkedItem){
-        checkedItem.update({
-        task_active: false,
+router.get('/:listname', isLoggedIn, function(req, res) {
+    //shows lists page with list content depending on what is passed with :listname
+    var listname = req.params.listname;
+    task.Lists.findOne({where: {list_title: listname, user_fk: req.session.passport.user}}).then(function(test) {
+        task.Items.findAll({where: {user_fk: req.session.passport.user, list_fk: test.id}, order: [['task_importance', 'DESC']]}).then(function(quickList){
+            return res.render('lists', {quickList})
         })
-    .then(function(){
-        res.redirect('/')
-    })
+        })
     });
-});
 
-router.put('/api/delete/:id', function(req, res) {
-    models.Items.findOne( {where: {id: req.params.id} } )
-    .then(function(deleteItem){
-        deleteItem.destroy()
-    .then(function(){
-            res.redirect('/')
-        })
-    })
-});
-
+    function isLoggedIn(req, res, next) {
+ 
+        if (req.isAuthenticated())
+    
+            return next();
+    
+        res.redirect('/signup');
+    
+    }
+    
 module.exports = router;

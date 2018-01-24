@@ -46,7 +46,9 @@ app.use(methodOverride('_method'));
 // app.use('/', routes);
 
 var auth_routes = require('./controllers/authcontroller.js');
+var mylists_routes = require('./controllers/mylists_controller.js');
 app.use('/', auth_routes);
+app.use('/lists', mylists_routes)
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.user);

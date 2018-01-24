@@ -17,6 +17,8 @@ auth_router.get('/signin', function(req, res) {
     res.render('signin')
 });
 
+
+
 auth_router.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/firsttime',
 
