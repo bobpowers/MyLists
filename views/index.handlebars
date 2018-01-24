@@ -41,9 +41,9 @@
 				<div class="listStyling">
 					<div class="form-check-inline taskForm">
 						<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" data-ref={{id}} aria-label={{task_active}}>
-						<p class="itemName">{{listed_item}}</p>
+						<p class="itemName importance{{task_importance}}">{{listed_item}}</p>
 						<div class="btn-group dropleft importanceDropdown">
-							<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button type="button" class="btn btn-sm btn-light dropdown-toggle importance{{task_importance}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
 							</button>
 							<div class="dropdown-menu">
@@ -75,9 +75,9 @@
 					<div class="listStyling">
 						<div class="form-check-inline taskForm">
 							<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" checked="checked" data-ref={{id}} aria-label={{task_active}}>
-							<s><p class="itemName">{{listed_item}}</p></s>
+							<s><p class="itemName importance{{task_importance}}">{{listed_item}}</p></s>
 							<div class="btn-group dropleft importanceDropdown">
-								<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<button type="button" class="btn btn-sm btn-light dropdown-toggle importance{{task_importance}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
 								</button>
 								<div class="dropdown-menu">
