@@ -37,7 +37,7 @@ auth_router.get('/index', isLoggedIn, function(req, res) {
     //handle with passport
     console.log(req.isAuthenticated());
     task.Lists.findOne({where: {list_title: "default", user_fk: req.session.passport.user}}).then(function(test) {
-    task.Items.findAll({where: {user_fk: req.session.passport.user, list_fk: test.id}}).then(function(quickList){
+    task.Items.findAll({where: {user_fk: req.session.passport.user, list_fk: test.id}, order: [['task_importance', 'DESC']]}).then(function(quickList){
         return res.render('index', {quickList})
     })
     })
