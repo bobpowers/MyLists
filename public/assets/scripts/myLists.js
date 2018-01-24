@@ -55,13 +55,17 @@ var buttonDropdownActions = function(){
 	console.log(importance)
 		// SEND TO DB THE NEW IMPORTANCE IN FOLLOWING SECTION
 		if (importance <= 2) {
-			// LOGIC FOR UPDATING THE IMPORTANCE AND CHANGING THE CLASS
+			$.ajax({
+      			method: "PUT",
+      			url: "list/item/" + idOfTask
+    		})
+    		.done("UPDATE THE PAGE");
 		} else {
 			$.ajax({
       			method: "DELETE",
-      			url: "/item/" + idOfTask
-    })
-    .done(getAuthors);
+      			url: "list/item/" + idOfTask
+    		})
+    		.done("UPDATE THE PAGE");
   }
 		// LOGIC FOR DELETING THE ITEM FROM DB
 	}
@@ -75,3 +79,7 @@ var checkboxActions = function(){
 		// UPDATE DB TO ACTIVE AND CHANGE CSS CLASS
 	}
 }
+
+
+
+
