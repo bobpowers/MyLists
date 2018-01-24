@@ -3,6 +3,20 @@
 /*font-family: 'Roboto', sans-serif;*/
 /*font-family: 'Abel', sans-serif;*/
 
+.highImportance {
+    color: #2d60b2;
+}
+
+.moderateImportance {
+    color: #3784ff;
+}
+
+#quickAddButton {
+    background-color: #5896fb;
+    border-color: #5896fb;
+    color: #fefeff;
+}
+
 #signInWelcome {
     text-align: center;
     padding-top: 10%;
