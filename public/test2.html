@@ -33,7 +33,7 @@
 		<a class="navbar-brand">MyLists</a>
   		<form class="form-inline">
   			<div class="quickAddDiv">
-	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="Add to Quick-Add" aria-label="Add to Quick-Add">
+	    		<input class="form-control form-control-sm mr-sm-2" id="quickAddInput" type="text" placeholder="+ Add to Quick-Add" aria-label="Add to Quick-Add">
 	    		<button class="btn  btn-outline-success my-2 my-sm-0" type="submit">Quick-Add</button>
     		</div>
 
@@ -68,25 +68,25 @@
 		<!-- MAIN CONTENT AREA -->
 		<div class="mainContent">
 			<div id="listTitle">
-				<h1>Template</h1>
+				<h1 data-value="LIST ID GOES HERE">Template</h1>
 			</div>
 			<div class="checklistContent">
 				<!-- THE LISTED ITEMS -->
 				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
   				<div class="listStyling">
     				<div class="form-check-inline taskForm">
-        				<input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        				<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" value="taskIdHERE" aria-label="...">
       					<p class="itemName">sdaghbs</p>
       					<div class="btn-group dropleft importanceDropdown">
 							<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
 						  	</button>
 						  	<div class="dropdown-menu">
-						  		<a class="dropdown-item" href="#">High Importance</a>
-			    				<a class="dropdown-item" href="#">Moderate Imporance</a>
-			    				<a class="dropdown-item" href="#">Low Importance</a>
+						  		<a class="dropdown-item importance" href="#" data-ref="taskIdHERE" data-value="2">High Importance</a>
+			    				<a class="dropdown-item importance" href="#" data-ref="taskIdHERE" data-value="1">Moderate Imporance</a>
+			    				<a class="dropdown-item importance" href="#" data-ref="taskIdHERE" data-value="0">Low Importance</a>
 			    				<div class="dropdown-divider"></div>
-			    				<a class="dropdown-item" href="#" style="color: #FF0000">Delete</a>
+			    				<a class="dropdown-item importance" href="#" data-value="3" style="color: #FF0000">Delete</a>
 						  	</div>
 						</div>
     				</div>

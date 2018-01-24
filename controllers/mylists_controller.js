@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var passport = require("passport");
 var task = require('../models/index.js');
 
 // router.get('/', function(req, res) {
     
 //     task.Items.findAll({
-//         include: [{model: task.Lists}]
+        // include: [{model: task.Lists}]
 //        }).then(function(data){
      
 //          var hbsObject = { Items: data };
@@ -14,6 +14,23 @@ var task = require('../models/index.js');
      
 //        })
 // });
+
+
+router.post('/index', function (req, res) {
+  task.Items.create({
+    where: {
+        user_fk: req.session.passport.user
+        // list_fk: something
+    } ,
+    include: [{model: task.Lists, model:}]
+
+    
+  })
+
+
+})
+
+
 
 router.post('/api/checked/:id', function(req, res) {
     models.Items.findOne( {where: {id: req.params.id} } )
