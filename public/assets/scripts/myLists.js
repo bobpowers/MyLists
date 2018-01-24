@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("#addCategory").on("click", runListModal);
 	$("#quickAddButton").on("click", addToQuickList);
 	$(document).on('click', '.importance', buttonDropdownActions);
-	$(":checkbox").on("click", checkboxActions);
+//	$(document).on("click", '.blankCheckbox', checkboxActions);
 });
 
 // BELOW SECTION NEEDS TO BE REWORKED
@@ -57,28 +57,45 @@ var buttonDropdownActions = function(){
 		if (importance <= 2) {
 			$.ajax({
       			method: "PUT",
-      			url: "list/item/" + idOfTask + "/" + importance
+      			url: "list/item/" + idOfTask + "/" + importance,
+				  success: function(){
+					  console.log("Edited");
+					  location = '/index'; //this is the redirect
+					}
     		})
-    		.done(location.reload());
 		} else {
 			$.ajax({
       			method: "DELETE",
-      			url: "list/item/" + idOfTask
+      			url: "list/item/" + idOfTask,
+				  success: function(){
+					  console.log("Edited");
+					  location = '/index'; //this is the redirect
+					}
     		})
-    		.done(location.reload());
   }
 		// LOGIC FOR DELETING THE ITEM FROM DB
 	}
 
-var checkboxActions = function(){
-	var checkboxValue = $(this).val();
-	if (this.checked) {
-		// UPDATE DB TO INACTIVE AND CHANGE CSS CLASS
-	} else {
-		// UPDATE DB TO ACTIVE AND CHANGE CSS CLASS
-	}
+$('input:checkbox').change(function() {
+	var idOfTask = $(this).data("ref");
+	if ($(this).prop('checked')) {
+		$.ajax({
+			method: "PUT",
+			url: "list/item/active/" + idOfTask + "/" + 0,
+			success: function(){
+				console.log("Edited");
+				location = '/index'; //this is the redirect
+			  }
+	})
+ } else {
+		$.ajax({
+			method: "PUT",
+			url: "list/item/active/" + idOfTask + "/" + 1,
+			success: function(){
+				console.log("Edited");
+				location = '/index'; //this is the redirect
+			  }
+	})
 }
 
-
-
-
+})

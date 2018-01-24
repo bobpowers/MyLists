@@ -36,34 +36,64 @@
 				<!-- THE LISTED ITEMS -->
 				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
 					<div class = "hbcontainer">
-					{{#each quickList}}
-  				<div class="listStyling">
-    				<div class="form-check-inline taskForm">
-        				<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" value="taskIdHERE" aria-label="...">
-      					<p class="itemName">{{listed_item}}</p>
-      					<div class="btn-group dropleft importanceDropdown">
+				{{#each quickList}}
+				{{#if task_active}}
+				<div class="listStyling">
+					<div class="form-check-inline taskForm">
+						<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" data-ref={{id}} aria-label={{task_active}}>
+						<p class="itemName">{{listed_item}}</p>
+						<div class="btn-group dropleft importanceDropdown">
 							<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
-						  	</button>
-						  	<div class="dropdown-menu">
-						  		<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
-			    				<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="1">Moderate Imporance</a>
-			    				<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="0">Low Importance</a>
-			    				<div class="dropdown-divider"></div>
-			    				<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
-						  	</div>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="1">Moderate Imporance</a>
+								<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="0">Low Importance</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
+							</div>
 						</div>
-    				</div>
-    				<hr class="hrForChecklist">
-  				</div>
-				  {{/each}}
-				  </div>
+					</div>
+					<hr class="hrForChecklist">
+				</div>
+				{{/if}}
+				{{/each}}
+				</div>
   				
 		<!-- ADD A NEW ITEM -->
 			<div id="addToList">
 				<p id="addItem">+ Add an Item</p>
 			</div>
 			</div>
+			<div class="checklistContent">
+				<!-- THE LISTED ITEMS -->
+				<!-- <div> listStyling IS THE TEMPLATE FOR HANDLEBARS -->
+				<div class = "hbcontainer">
+				{{#each quickList}}
+				{{#unless task_active}}
+					<div class="listStyling">
+						<div class="form-check-inline taskForm">
+							<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" checked="checked" data-ref={{id}} aria-label={{task_active}}>
+							<s><p class="itemName">{{listed_item}}</p></s>
+							<div class="btn-group dropleft importanceDropdown">
+								<button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="2">High Importance</a>
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="1">Moderate Imporance</a>
+									<a class="dropdown-item importance" href="#" data-ref={{id}} data-value="0">Low Importance</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item importance" data-ref={{id}} style="color: #FF0000" data-value="3">Delete</a>
+								</div>
+							</div>
+						</div>
+						<hr class="hrForChecklist">
+					</div>
+				{{/unless}}
+				{{/each}}
+				</div>
 		</div>
 	</div>
 

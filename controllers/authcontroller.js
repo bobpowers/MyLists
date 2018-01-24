@@ -92,7 +92,17 @@ auth_router.put('/list/item/:id/:importance', function(req, res) {
         test.update({
             task_importance: req.params.importance
         }).then(task => {
-            res.redirect('/');
+            res.end();
+        })
+    })
+})
+
+auth_router.put('/list/item/active/:id/:active', function(req, res) {
+    task.Items.findOne({where: {id: req.params.id}}).then(function(test) {
+        test.update({
+            task_active: req.params.active
+        }).then(task => {
+            res.end();
         })
     })
 })
