@@ -18,9 +18,10 @@ router.get('/:listname', isLoggedIn, function(req, res) {
 router.post('/quickadd3', function(req, res) {
     var listnamePOS = (req.headers.referer);
     console.log(listnamePOS)
-    var removeletters = listnamePOS.substr(28)
+    var removeletters = listnamePOS.substr(28);
+    var removespaces = removeletters.replace("%20", " ");
     console.log(removeletters);
-    task.Lists.findOne({where: {list_title: removeletters, user_fk: req.session.passport.user}}).then(function(quickadd) {
+    task.Lists.findOne({where: {list_title: removespaces, user_fk: req.session.passport.user}}).then(function(quickadd) {
         console.log("----------------------------------")
         console.log(req.body)
         console.log(quickadd.id)
