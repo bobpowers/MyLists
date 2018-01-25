@@ -13,6 +13,10 @@ router.get('/:listname', isLoggedIn, function(req, res) {
         })
     });
 
+
+
+
+    
     function isLoggedIn(req, res, next) {
  
         if (req.isAuthenticated())

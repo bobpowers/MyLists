@@ -131,6 +131,27 @@ auth_router.put('/list/item/active/:id/:active', function(req, res) {
     })
 })
 
+
+auth_router.get("/api/lists", function(req, res) {
+    task.Lists.findAll({where: {user_fk: req.session.passport.user}}).then(function(dbLists) {
+      res.json(dbLists);
+    });
+  });
+
+
+
+auth_router.post('/addList', function(req, res) {
+    console.log(req.body)
+        let quickhit = {
+            list_title: req.body.addlistmodal,
+            user_fk: req.session.passport.user,
+            }
+            
+        task.Lists.create(quickhit).then(task => {
+            res.redirect('/');
+        })
+    })
+
 function isLoggedIn(req, res, next) {
  
     if (req.isAuthenticated())
