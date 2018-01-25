@@ -40,7 +40,7 @@
 				<div class="listStyling">
 					<div class="form-check-inline taskForm">
 						<input class="form-check-input position-static" type="checkbox" class="blankCheckbox" data-ref={{id}} aria-label={{task_active}}>
-						<p class="itemName importance{{task_importance}}">{{listed_item}}</p>
+						<p class="itemName importance{{task_importance}}" data-ref={{id}} data-list={{list_fk}}>{{listed_item}}</p>
 						<div class="btn-group dropleft importanceDropdown">
 							<button type="button" class="btn btn-sm btn-light dropdown-toggle importance{{task_importance}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i style="font-size:20px; vertical-align: middle;" class="fa">&#xf013;</i>
@@ -116,7 +116,7 @@
 		      	</div>
 		      	<div class="modal-body">
 		        {{!-- <input class="form-control form-control-sm mr-sm-2" id="modalTaskInput" type="text" placeholder="Add New Task" aria-label="Add to Quick-Add"> --}}
-					<form class="form-horizontal" role="form" method="post" action="/quickadd2">
+					<form class="form-horizontal" role="form" method="post" action="quickadd3">
 					<div class="form-group">
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="quickaddmodal" placeholder="Add a New Task" name="quickaddmodal"/>
@@ -164,3 +164,7 @@
 	  	  	</div>
 	  	</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script src="/assets/scripts/otherLists.js"></script>

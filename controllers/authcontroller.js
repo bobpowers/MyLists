@@ -148,7 +148,7 @@ auth_router.post('/addList', function(req, res) {
             }
             
         task.Lists.create(quickhit).then(task => {
-            res.redirect('/');
+            res.redirect(req.get('referer'));
         })
     })
 
