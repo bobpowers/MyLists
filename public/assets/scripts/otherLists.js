@@ -34,8 +34,20 @@ var deleteList = function(){
 	var listToDelete = $("h1").text()
 	listToDelete = listToDelete.replace(/ /g, "%20");
 	console.log("/delete/"+listToDelete);
-	window.location.href = "/delete/"+listToDelete;
-	window.location.replace("/");
+	$.ajax({
+      		method: "DELETE",
+      		url: "delete/" + listToDelete,
+				  success: function(){
+					  console.log("Deleted");
+					  window.location.replace("/");
+					}
+    		})
+
+
+
+
+	// window.location.href = "/delete/"+listToDelete;
+	// window.location.replace("/");
 	
 }
 
