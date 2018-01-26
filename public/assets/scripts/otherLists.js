@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 var titleText = function(){
 	var listTitle = window.location.pathname;
-	listTitle = listTitle.replace("lists", "").replace(/\//g, "").replace("%20", " ");
+	listTitle = listTitle.replace("lists", "").replace(/\//g, "").replace(/%20/g, " ");
 	return listTitle
 }
 
