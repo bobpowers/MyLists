@@ -34,7 +34,11 @@
 }
 
 #signInBlob1,
-#signInBlob2 {
+#signInBlob2,
+#signInBlob3,
+#signInBlob4,
+#signInBlob5,
+#signInBlob6 {
     width: 30%;
     margin: 0.1%;
     background-color: #e5e9ec;
