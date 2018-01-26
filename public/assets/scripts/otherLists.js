@@ -3,22 +3,41 @@ $(document).ready(function(){
 	$("#addCategory").on("click", runListModal);
 	$("#quickAddButton").on("click", addToQuickList);
 	$(document).on('click', '.importance', buttonDropdownActions);
+	$("#listTitle h1").text(titleText);
 //	$(document).on("click", '.blankCheckbox', checkboxActions);
+	$(".fa-angle-double-right").on('mousedown', function() {
+		var grabInfoToDelete = function(){
+			var listToDelete = $(this).data("value");
+			// console.log(listToDelete);
+			runListModal();
+		};
+    	var timeoutId = 0;
+    	timeoutId = setTimeout(grabInfoToDelete, 1000);
+		}).on('mouseup', function() {
+    	clearTimeout(timeoutId);
+	});
+
 });
 
 // BELOW SECTION NEEDS TO BE REWORKED
 
-var addItemToList = function(itemName){
-	$.post("/item/new", itemName)
-		.then("RELOAD PAGE - INCLUDE NEW ITEM")
-};
+// var addItemToList = function(itemName){
+// 	$.post("/item/new", itemName)
+// 		.then("RELOAD PAGE - INCLUDE NEW ITEM")
+// };
 
-var createNewList = function(listName) {
-    $.post("/list/new", listName)
-   		.then("RELOAD PAGE- INCLUDE NEW LIST");
-  }
+// var createNewList = function(listName) {
+//     $.post("/list/new", listName)
+//    		.then("RELOAD PAGE- INCLUDE NEW LIST");
+//   }
 
 // ABOVE SECTION NEEDS TO BE REWORKED
+
+var titleText = function(){
+	var listTitle = window.location.pathname;
+	listTitle = listTitle.replace("lists", "").replace(/\//g, "").replace("%20", " ");
+	return listTitle
+}
 
 
 var runTaskModal = function(){
@@ -105,7 +124,7 @@ var authorContainer = $(".addedLists");
 
 function createlistRow(listData) {
 	var link = $("<div>");
-		link.append("<a href='" + listData.list_title + "'><i class='fa fa-angle-double-right'></i> " + listData.list_title + "</a>")
+		link.append("<a class='sidebarLinkref' href='" + listData.list_title + "'><i class='fa fa-angle-double-right' data-value="+listData.list_title+"></i> " + listData.list_title + "</a>")
 		link.append("<br><hr class='hr'><br>")
 	return link;
 }
