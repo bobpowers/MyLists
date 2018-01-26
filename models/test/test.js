@@ -34,7 +34,7 @@ describe('UI Flow Tests', function() {
     describe('given bad data', () => {
       it('should fail', done => {
         nightmare
-        .goto('https:// /signin')
+        .goto('https://morning-hamlet-21634.herokuapp.com/signin')
         .on('page', (type, message) => {
           if (type == 'alert') done()
         })
@@ -54,7 +54,7 @@ describe('UI Flow Tests', function() {
     describe('given the data', () => {
       it('should register user', done => {
         nightmare
-        .goto('https:// /signup')
+        .goto('https://morning-hamlet-21634.herokuapp.com/signup')
         .on('page', (type, message) => {
           if (type == 'alert') done()
         })
@@ -77,7 +77,7 @@ describe('UI Flow Tests', function() {
     describe('quick-adding and deleting', () => {
       it('should work without timing out', done => {
         nightmare
-        .goto('https:// /index')
+        .goto('https://morning-hamlet-21634.herokuapp.com/index')
         // add an item example1
         .click('#addItem')
         .click('#quickaddmodal')
@@ -118,7 +118,7 @@ describe('UI Flow Tests', function() {
     describe('given good data', () => {
       it('should log back in', done => {
         nightmare
-        .goto('https:// /signin')
+        .goto('https://morning-hamlet-21634.herokuapp.com/signin')
         .on('page', (type, message) => {
           if (type == 'alert') done()
         })
