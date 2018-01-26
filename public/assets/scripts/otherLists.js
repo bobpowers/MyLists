@@ -4,18 +4,9 @@ $(document).ready(function(){
 	$("#quickAddButton").on("click", addToQuickList);
 	$(document).on('click', '.importance', buttonDropdownActions);
 	$("#listTitle h1").text(titleText);
+	$("#deleteList").on("click", deleteList);
 //	$(document).on("click", '.blankCheckbox', checkboxActions);
-	$(".fa-angle-double-right").on('mousedown', function() {
-		var grabInfoToDelete = function(){
-			var listToDelete = $(this).data("value");
-			// console.log(listToDelete);
-			runListModal();
-		};
-    	var timeoutId = 0;
-    	timeoutId = setTimeout(grabInfoToDelete, 1000);
-		}).on('mouseup', function() {
-    	clearTimeout(timeoutId);
-	});
+	
 
 });
 
@@ -35,8 +26,17 @@ $(document).ready(function(){
 
 var titleText = function(){
 	var listTitle = window.location.pathname;
-	listTitle = listTitle.replace("lists", "").replace(/\//g, "").replace(/%20/g, " ");
+	listTitle = listTitle.replace("lists", "").replace(/\//g, "").replace("%20", " ");
 	return listTitle
+}
+
+var deleteList = function(){
+	var listToDelete = $("h1").text()
+	listToDelete = listToDelete.replace(/ /g, "%20");
+	console.log("/delete/"+listToDelete);
+	window.location.href = "/delete/"+listToDelete;
+	window.location.replace("/");
+	
 }
 
 
