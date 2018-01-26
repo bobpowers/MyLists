@@ -81,6 +81,16 @@ router.post('/addList', function(req, res) {
         })
     })
 
+router.delete('/delete/:list', function(req, res) {
+    var removespaces = (req.params.list).replace(/%20/g, " ");
+    task.Lists.findOne({where: {list_title: removespaces}}).then(task => {
+        console.log(task)
+        task.destroy({where: {id: task.id}}).then(task => {
+            res.redirect(req.get('referer'));
+        })
+    })
+})
+
     function createlistRow(listData) {
         console.log("yay");
         var container = $("#listnameContainer");
@@ -99,5 +109,7 @@ router.post('/addList', function(req, res) {
         res.redirect('/signup');
     
     }
+
+
     
 module.exports = router;
