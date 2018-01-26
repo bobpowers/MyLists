@@ -33,7 +33,7 @@
     padding-bottom: 1%;
 }
 
-#signInBlob {
+.signInBlob {
     width: 30%;
     margin: 0.1%;
     background-color: #e5e9ec;
