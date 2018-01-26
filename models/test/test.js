@@ -41,7 +41,7 @@ describe('UI Flow Tests', function() {
           if (type == 'alert') done()
         })
         // this is to make random test emails per use .type('#signInBlob3', 'test+'+Math.round(Math.random()*1000000)+'@test.com')
-        .type('#signInBlob3', 'loginUserName')
+        .type('#signInBlob3', loginUserName)
         .type('#signInBlob4', 'ExampleFirst')
         .type('#signInBlob5', 'ExampleLast')
         .type('#signInBlob6', 'supersecretpassword')
@@ -61,7 +61,7 @@ describe('UI Flow Tests', function() {
         nightmare
         .goto('https://morning-hamlet-21634.herokuapp.com/index')
         // add an item example1
-        .click('#addItem')
+        .click('#addToList p')
         .click('#quickaddmodal')
         .type('#quickaddmodal', 'example1')
         .click('#addTask')
@@ -104,7 +104,7 @@ describe('UI Flow Tests', function() {
         .on('page', (type, message) => {
           if (type == 'alert') done()
         })
-        .type('#signInBlob1', 'loginUserName')
+        .type('#signInBlob1', loginUserName)
         .type('#signInBlob2', 'supersecretpassword')
         .click('#signInButton')
         .wait(2000)
