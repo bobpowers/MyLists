@@ -60,6 +60,18 @@
     padding-left: 24px;
 }
 
+#deleteList {
+    float: right;
+    margin-right: 120px;
+    margin-top: 80px;
+    cursor: pointer;
+}
+
+#deleteList a {
+    text-decoration: none;
+    color: red;
+}
+
 body {
     background-color: #fefeff;
 }
