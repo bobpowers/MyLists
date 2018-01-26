@@ -1,6 +1,8 @@
 const Nightmare = require('nightmare')
 const assert = require('assert')
 
+var loginUserName = "test" + Math.round(Math.random()*1000000) + "@test.com";
+
 describe('UI Flow Tests', function() {
   this.timeout('60s')
 
@@ -8,26 +10,6 @@ describe('UI Flow Tests', function() {
   beforeEach(() => {
     nightmare = new Nightmare({ show: true })
   })
-
-//   describe('Public Pages', function() {
-//     describe('/ (Home Page)', () => {
-//       it('should load without error', done => {
-//         // your actual testing urls will likely be `http://localhost:port/path`
-//         nightmare.goto('https://  .com')
-//           .end()
-//           .then(function (result) { done() })
-//           .catch(done)
-//       })
-//     })
-//     describe('/signup (Login Page)', () => {
-//       it('should load without error',  done => {
-//         nightmare.goto('https://  .com/signup')
-//           .end()
-//           .then(result => { done() })
-//           .catch(done)
-//       })
-//     })
-//   })
 
 // unsuccessful log in with an unregistered e-mail
   describe('Login Page', function () {
@@ -43,7 +25,7 @@ describe('UI Flow Tests', function() {
         .click('#signInButton')
         .wait(2000)
         .end()
-        .then()
+        .then(function(result) { done() })
         .catch(done)
       })
     })
@@ -59,14 +41,14 @@ describe('UI Flow Tests', function() {
           if (type == 'alert') done()
         })
         // this is to make random test emails per use .type('#signInBlob3', 'test+'+Math.round(Math.random()*1000000)+'@test.com')
-        .type('#signInBlob3', 'test1@test.com')
+        .type('#signInBlob3', 'loginUserName')
         .type('#signInBlob4', 'ExampleFirst')
         .type('#signInBlob5', 'ExampleLast')
         .type('#signInBlob6', 'supersecretpassword')
         .click('#signInButton')
         .wait(2000)
         .end()
-        .then()
+        .then(function(result) { done() })
         .catch(done)
       })
     })
@@ -122,12 +104,12 @@ describe('UI Flow Tests', function() {
         .on('page', (type, message) => {
           if (type == 'alert') done()
         })
-        .type('#signInBlob1', 'test1@test.com')
+        .type('#signInBlob1', 'loginUserName')
         .type('#signInBlob2', 'supersecretpassword')
         .click('#signInButton')
         .wait(2000)
         .end()
-        .then()
+        .then(function(result) { done() })
         .catch(done)
       })
     })
