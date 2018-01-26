@@ -86,7 +86,7 @@ router.delete('/delete/:list', function(req, res) {
     task.Lists.findOne({where: {list_title: removespaces}}).then(task => {
         console.log(task)
         task.destroy({where: {id: task.id}}).then(task => {
-            res.redirect(req.get('referer'));
+            res.end();
         })
     })
 })
